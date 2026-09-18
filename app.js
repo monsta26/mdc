@@ -250,10 +250,12 @@ function setSection(section){
 }
 
 function cardRoles(c){
-  if(Array.isArray(c.roles) && c.roles.length) return c.roles.map(r=>String(r).toLowerCase());
+  // Preserve explicit roles, while always adding the broad Spell/Trap role
+  // from the card classification. Spell/Trap cards can have custom roles too,
+  // so we must not return early when c.roles already exists.
+  const roles=Array.isArray(c.roles) ? c.roles.map(r=>String(r).toLowerCase()) : [];
   const role=String(c.role||'').toLowerCase();
   const text=`${c.remember||''} ${(c.useFor||[]).map(x=>x.text||'').join(' ')}`.toLowerCase();
-  const roles=[];
   const classification=cardClassification(c);
   if(classification.type==='Spell') roles.push('spell');
   if(classification.type==='Trap') roles.push('trap');
