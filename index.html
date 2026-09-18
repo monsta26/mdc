@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0f14">
+  <title>Master Duel Companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="pageTitle">Master Duel Companion</h1>
+    <p class="sub" id="pageSubtitle">Choose a deck to open its revision, combo and practice tools.</p>
+    <nav class="top-nav" aria-label="Main navigation">
+      <button id="homeBtn" class="top-btn on" type="button">⌂ Home</button>
+    </nav>
+
+    <nav id="sectionNav" class="section-nav hide" aria-label="Deck sections">
+      <div class="section-buttons">
+        <button class="section-btn on" type="button" data-section="revision">Revision</button>
+        <button class="section-btn" type="button" data-section="combos">Combos</button>
+        <button class="section-btn" type="button" data-section="practice">Practice</button>
+        <input id="search" class="section-search hide" aria-label="Search cards" placeholder="Search cards...">
+      </div>
+    </nav>
+  </header>
+
+  <main id="app"></main>
+
+  <div id="modal" class="hide" aria-hidden="true">
+    <div class="shade"></div>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+      <button id="x" aria-label="Close">×</button>
+      <div id="detail"></div>
+    </section>
+  </div>
+
+  <script src="data/decks.js"></script>
+  <script src="data/decks/salamangreat/cards.js"></script>
+  <script src="data/decks/sky-striker/cards.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
